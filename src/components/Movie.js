@@ -224,19 +224,7 @@ class Movie extends Component {
 							</div>
 					     </section>
 					</section>
-					<aside className="movie__media">
-						<ul className="media__list">
-					        {this.state.images.backdrops.map(function(image) {
-					          return (
-					            <li key={ image.file_path.toString() } className="media__list__item">
-					            	{ image.file_path != null &&
-					            		<img src={"https://image.tmdb.org/t/p/w500" + image.file_path } alt={ movie.title } className="media__list__item__image" />
-					              	}
-					            </li>
-					          );
-					        })}
-					    </ul>
-				    </aside>
+					
 				</div>
 			;
 		}

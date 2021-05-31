@@ -21,21 +21,6 @@ class Search extends Component {
 	    this.searchItems = this.searchItems.bind(this);
 	}
 
-	/*componentDidMount() {
-
-		var currentValue = encodeURI(this.state.value);
-		
-		var th = this;
-	    axios.get( Remote('search/movie', { query : currentValue }) )
-	      .then(function(result) {   
-	        
-	        th.setState({
-	          movies: result.data.results
-	        });
-
-	    })
-	}*/
-
 	clearOption(event) {
 		this.setState({value: ''})
 	}

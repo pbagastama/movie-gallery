@@ -47,6 +47,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .router-container {
   display: grid;
+  background: linear-gradient(to bottom, #192133, #111826);
   grid-template-columns: 130px auto;
   grid-template-rows: 100px auto;
   grid-template-areas:
@@ -57,8 +58,8 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   grid-area: main;
   max-width: 100%;
-  //
   overflow: hidden;
+  background: linear-gradient(to bottom, #141b29, #0c111b 300px);
 }
 
 .single {
@@ -69,7 +70,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .aside {
   grid-area: aside;
-  background-color: #222;
+  background: linear-gradient(to bottom, #192133, #111826);
   text-align: center;
   &__nav {
     list-style: none;
@@ -107,8 +108,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .top-bar {
-  border-bottom:2px solid #222;
-  //position: fixed;
+  border-bottom:1px solid #FFF;
+  background: linear-gradient(to bottom, #141b29, #0c111b 300px);
   z-index: 50;
   width: 100%;
   display: flex;

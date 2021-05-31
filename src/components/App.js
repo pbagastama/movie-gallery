@@ -4,8 +4,6 @@ import Movies from './Movies';
 import Movie from './Movie';
 import Search from './Search';
 
-import Login from './Login';
-
 import {
   BrowserRouter as Router,
   Route,
@@ -51,34 +49,11 @@ const NowPlaying = () => (
   </div>
 )
 
-const LoginPage = () => (
-  <div className="container">
-    <Login action="login" />
-  </div>
-)
-
-const ApprovedPage = () => (
-  <div className="container">
-    <Login action="approved" />
-  </div>
-)
-
-const LogoutPage = () => (
-  <div className="container">
-    <Login action="logout" />
-  </div>
-)
-
 class App extends Component {
 
   tryParseJSON (jsonString){
     try {
         var o = JSON.parse(jsonString);
-
-        // Handle non-exception-throwing cases:
-        // Neither JSON.parse(false) or JSON.parse(1234) throw errors, hence the type-checking,
-        // but... JSON.parse(null) returns null, and typeof null === "object",
-        // so we must check for that, too. Thankfully, null is falsey, so this suffices:
         if (o && typeof o === "object") {
             return o;
         }
@@ -89,41 +64,11 @@ class App extends Component {
   };
 
   render() {
-
-      var account = null;
-      var account = this.tryParseJSON(localStorage.getItem('account'));
-
-      console.log(account);
-
       return (
         <Router>
           <div className="router-container">
-            <Link className="top-bar-brand" to="/">React Movies</Link>
             <nav className="top-bar">
               <Search />
-              <ul className="top-bar__menu">
-                { account ? (
-                    <li>
-                      <Link to="/account" className="top-bar__item--account">
-                        <img src={ "https://www.gravatar.com/avatar/" + account.avatar.gravatar.hash } />
-                        { account.username }
-                      </Link>
-                      <ul className="submenu">
-                        <li>
-                          <Link to="/account">Account</Link>
-                        </li>
-                        <li>
-                          <Link to="/logout">Logout</Link>
-                        </li>
-                      </ul>
-                    </li>
-                    ) : (
-                    <li>
-                      <Link to="/login">Login</Link>
-                    </li>
-                    )}
-
-              </ul>
             </nav>
             <aside className="aside">
               <ul className="aside__nav">
@@ -135,9 +80,6 @@ class App extends Component {
             <Route exact path="/" component={Popular}/>
             <Route path="/top-rated" component={TopRated}/>
             <Route path="/now-playing" component={NowPlaying}/>
-            <Route path="/login" component={LoginPage}/>
-            <Route path="/logout" component={LogoutPage}/>
-            <Route path="/approved" component={ApprovedPage}/>
             <Route path="/movies/:id" component={Child}/>
           </div>
         </Router>
