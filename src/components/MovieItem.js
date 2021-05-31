@@ -9,6 +9,8 @@ class MovieItem extends Component {
 
 		const movie = this.props.movie;
 
+		console.log(movie);
+
 	    return (
 	    	<Link to={"/movies/" + movie.id.toString() } className="movie-list__item__link">
 	    		<div className="movie-list__item__poster">
@@ -18,7 +20,7 @@ class MovieItem extends Component {
 	            	<img src={"https://image.tmdb.org/t/p/w500" + movie.poster_path } alt={ movie.title } className="movie-list__item__poster__image" />
 	            </div>
 	            <h3 className="movie-list__item__title">{ movie.title }</h3>
-	            <p className="movie-list__item__year">{ moment(movie.release_date).format('Y') }</p>
+	            <p className="movie-list__item__year">{ moment(movie.release_date).format('DD MMM YYYY') }</p>
 	        </Link>
 	    );
 	}
